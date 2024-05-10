@@ -8,7 +8,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
+  FormMessage
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -189,98 +189,14 @@ export default function TrainModelZone() {
           onSubmit={form.handleSubmit(onSubmit)}
           className="rounded-md flex flex-col gap-8"
         >
-          <FormField
-            control={form.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem className="w-full rounded-md">
-                <FormLabel>Name</FormLabel>
-                <FormDescription>
-                  Give your model a name so you can easily identify it later.
-                </FormDescription>
-                <FormControl>
-                  <Input
-                    placeholder="e.g. Natalie Headshots"
-                    {...field}
-                    className="max-w-screen-sm"
-                    autoComplete="off"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <div className="flex flex-col gap-4">
-            <FormLabel>Type</FormLabel>
-            <FormDescription>
-              Select the type of headshots you want to generate.
-            </FormDescription>
-            <RadioGroup
-              defaultValue={modelType}
-              className="grid grid-cols-3 gap-4"
-              value={modelType}
-              onValueChange={(value) => {
-                form.setValue("type", value);
-              }}
-            >
-              <div>
-                <RadioGroupItem
-                  value="man"
-                  id="man"
-                  className="peer sr-only"
-                  aria-label="man"
-                />
-                <Label
-                  htmlFor="man"
-                  className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-transparent p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
-                >
-                  <FaMale className="mb-3 h-6 w-6" />
-                  Man
-                </Label>
-              </div>
-
-              <div>
-                <RadioGroupItem
-                  value="woman"
-                  id="woman"
-                  className="peer sr-only"
-                  aria-label="woman"
-                />
-                <Label
-                  htmlFor="woman"
-                  className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-transparent p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
-                >
-                  <FaFemale className="mb-3 h-6 w-6" />
-                  Woman
-                </Label>
-              </div>
-              <div>
-                <RadioGroupItem
-                  value="person"
-                  id="person"
-                  className="peer sr-only"
-                  aria-label="person"
-                />
-                <Label
-                  htmlFor="person"
-                  className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-transparent p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
-                >
-                  <FaRainbow className="mb-3 h-6 w-6" />
-                  Unisex
-                </Label>
-              </div>
-            </RadioGroup>
-          </div>
+          
+          
           <div
             {...getRootProps()}
             className=" rounded-md justify-center align-middle cursor-pointer flex flex-col gap-4"
           >
-            <FormLabel>Samples</FormLabel>
-            <FormDescription>
-              Upload 4-10 images of the person you want to generate headshots
-              for.
-            </FormDescription>
-            <div className="outline-dashed outline-2 outline-gray-100 hover:outline-blue-500 w-full h-full rounded-md p-4 flex justify-center align-middle">
+            
+            <div className="outline-dashed outline-2 outline-gray-100 hover:outline-blue-500 w-full h-full rounded-md p-4 flex justify-center align-middle h-56">
               <input {...getInputProps()} />
               {isDragActive ? (
                 <p className="self-center">Drop the files here ...</p>
@@ -288,7 +204,7 @@ export default function TrainModelZone() {
                 <div className="flex justify-center flex-col items-center gap-2">
                   <FaImages size={32} className="text-gray-700" />
                   <p className="self-center">
-                    Drag 'n' drop some files here, or click to select files.
+                    Drag files here, or click to select files.
                   </p>
                 </div>
               )}
@@ -314,9 +230,14 @@ export default function TrainModelZone() {
               ))}
             </div>
           )}
-
+          <Input
+            {...form.register("name")}
+            placeholder="Tell us how you want the room to be furnished"
+            className="max-w-screen-sm"
+            autoComplete="off"
+          />
           <Button type="submit" className="w-full" isLoading={isLoading}>
-            Train Model{" "}
+            Stage it!{" "}
             {stripeIsConfigured && <span className="ml-1">(1 Credit)</span>}
           </Button>
         </form>

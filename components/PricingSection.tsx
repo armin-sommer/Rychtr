@@ -46,32 +46,32 @@ export default function PricingSection() {
 const pricingOptions = [
   {
     title: "Starter",
-    price: "1 Credit",
+    price: "$10.00",
     description:
-      "Perfect for individuals looking to enhance their online presence.",
+      "Full acces and commercial rights to your pictures.",
     features: [
-      "4 AI Headshots",
+      "4 AI Pictures",
     ],
     buttonText: "Choose Starter",
     bgColor: "bg-white",
   },
   {
     title: "Basic",
-    price: "3 Credits",
+    price: "$15.00",
     description:
-      "Ideal for professionals requiring frequent updates to their profiles.",
+      "Full acces and commercial rights to your pictures.",
     features: [
-      "12 AI Headshots",
+      "12 AI Pictures",
     ],
     buttonText: "Choose Basic",
-    bgColor: "bg-blue-50",
+    bgColor: "bg-white",
   },
   {
     title: "Premium",
-    price: "5 Credits",
-    description: "The best value with unlimited possibilities.",
+    price: "$20.00",
+    description: "Full acces and commercial rights to your pictures.",
     features: [
-      "20 AI Headshots",
+      "20 AI Pictures",
     ],
     buttonText: "Choose Premium",
     bgColor: "bg-white",
